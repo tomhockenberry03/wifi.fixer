@@ -1,8 +1,8 @@
-import os
+import subprocess
 
 #tests network connection by pinging google
 #if wifi is down, it will return the error "network is unreachable"
-os.system("ping -c 1 8.8.8.8")
+subprocess.run("ping -c 1 8.8.8.8", shell=True)
 
 
-os.system("sudo service network-manager restart") #restarts the internet
+subprocess.run("sudo service network-manager restart") #restarts the internet
