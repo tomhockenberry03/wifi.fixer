@@ -1,5 +1,5 @@
 import subprocess
-
+import datetime
 #defines p1 as the process of pinging google
 #for this process, -c 1 means ping it once, and 8.8.8.8 is the IP address of google.
 #in order to include multiple arguments, we need the shell=True.
@@ -11,5 +11,7 @@ result = p1.returncode
 
 #if the the return code doesn't equal 0, meaning an error occured, reset the internet.
 if result != 0:
+    x = datetime.datetime.now()
+    print(x)
     subprocess.run("sudo service network-manager restart", shell=True)
 
