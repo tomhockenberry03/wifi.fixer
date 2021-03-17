@@ -9,6 +9,7 @@ p1 = subprocess.run("ping -c 1 8.8.8.8", shell=True)
 #defined result as the return code of process p1.
 result = p1.returncode
 
-#if the the return code doesn't equal 0, meaning an error occured, reset the internet.
 if result != 0:
-    subprocess.run("sudo service network-manager restart") #restarts the internet
+    subprocess.run("sudo service network-manager restart", shell=True)
+
+#if the the return code doesn't equal 0, meaning an error occured, reset the internet.
