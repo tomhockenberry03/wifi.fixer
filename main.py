@@ -1,20 +1,23 @@
 import subprocess
 import datetime
+import time
+log = []
+result = 0
 
-def fix_and_continue(result):
-    if result != 0:
-        subprocess.run("sudo service network-manager restart", shell=True)
-        log = []
-        log.append(str(datetime.datetime.now()))
-    ping()
+def fixer(log):
+    global log
+    global result
+    log.append(str(datetime.datetime.now()))
+    subprocess.run("sudo service network-manager restart", shell=True)
 
-def ping():
-    result = 0
-    while result == 0:
+def ping(result):
+    global result
+    global log
+    while result = 0:
         p1 = subprocess.run("ping -c 1 8.8.8.8", shell=True)
         result = p1.returncode
-    fix_and_continue(result)
+        time.sleep(3)
+    fixer(log)
 
-ping()
-
+ping(result)
 
