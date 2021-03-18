@@ -10,10 +10,10 @@ p1 = subprocess.run("ping -c 1 8.8.8.8", shell=True)
 result = p1.returncode
 
 #if the the return code doesn't equal 0, meaning an error occured, reset the internet
-fail_time=[]
-if result != 0:
-    x = datetime.datetime.now()
-    fail_time.append(x)
 
+if result != 0:
     subprocess.run("sudo service network-manager restart", shell=True)
-print(log)
+
+log=[]
+log.append(str(datetime.datetime.now()))
+
