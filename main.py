@@ -9,6 +9,7 @@ result = 0
 def fixer(log):
     log.append(str(datetime.datetime.now()))
     subprocess.run("sudo service network-manager restart", shell=True)
+    print("Your network disconnected at:")
     print(log)
     time.sleep(10)
     ping(result)
