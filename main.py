@@ -10,7 +10,7 @@ def fixer(log):
     log.append(str(datetime.datetime.now()))
     subprocess.run("sudo service network-manager restart", shell=True)
     print("Fixed")
-    time.sleep(1)
+    time.sleep(10)
     ping(result)
 
 
@@ -21,7 +21,7 @@ def ping(result):
         print("Checked")
         result = p1.returncode
         print(result)
-        time.sleep(10)
+        time.sleep(1)
     result = 0
     fixer(log)
 
