@@ -6,16 +6,16 @@ log = []
 result = 0
 
 
-def fixer(log):
+def fixer(log): #adds the disconnection time to the array, resets the network connection, waits 20 seconds, then resumes pinging.
     log.append(str(datetime.datetime.now()))
     subprocess.run("sudo service network-manager restart", shell=True)
     print("Your network disconnected at:")
     print(log)
-    time.sleep(10)
+    time.sleep(20)
     ping(result)
 
 
-def ping(result):
+def ping(result): #pings google every second checking for connection, then brings up a GUI asking the user if they would like to reconnect. If the user answers "Yes", calls function fixer
     while result == 0:
         p1 = subprocess.run("ping -c 1 8.8.8.8", shell=True)
         result = p1.returncode
