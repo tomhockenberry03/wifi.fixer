@@ -1,15 +1,18 @@
 import subprocess
 import datetime
 import time
+
 log = []
 result = 0
+
 
 def fixer(log):
     log.append(str(datetime.datetime.now()))
     subprocess.run("sudo service network-manager restart", shell=True)
     print("Fixed")
-    time.sleep(10)
+    time.sleep(1)
     ping(result)
+
 
 def ping(result):
     print(result)
