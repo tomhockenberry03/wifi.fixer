@@ -22,7 +22,7 @@ def ping(result):
         result = p1.returncode
         print(result)
         time.sleep(1)
-    subprocess.run('zenity --question --title="Network Disconnect" --text="A problem with the network connection occured. Would you like to fix the issue?"')
+    subprocess.run('zenity --question --title="Network Disconnect" --text="A problem with the network connection occured. Would you like to fix the issue?"', shell=True)
     status = subprocess.run('echo $?')
     print(status)
     result = 0
