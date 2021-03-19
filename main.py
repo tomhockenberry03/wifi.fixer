@@ -24,9 +24,11 @@ def ping(result):
         time.sleep(1)
     p2 = subprocess.run('zenity --question --title="Network Disconnect" --text="A problem with the network connection occured. Would you like to fix the issue?"', shell=True)
     status = p2.returncode
-    print(status)
-    result = 0
-    fixer(log)
+    if status == 0:
+        result = 0
+        fixer(log)
+    else:
+        quit()
 
 ping(result)
 
