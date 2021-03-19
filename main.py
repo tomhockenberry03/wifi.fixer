@@ -19,7 +19,7 @@ def ping(result): #pings google every second checking for connection, then bring
     while result == 0:
         p1 = subprocess.run("ping -c 1 8.8.8.8", shell=True)
         result = p1.returncode
-        time.sleep(1)
+        time.sleep(3)
     p2 = subprocess.run('zenity --question --width=256 --height=128 --title="Network Disconnect" --text="A problem with the network connection occured. Would you like to fix the issue?"', shell=True)
     status = p2.returncode
     if status == 0:
