@@ -8,7 +8,7 @@ result = 0
 
 
 def fixer(log): #adds the disconnection time to the array, resets the network connection, waits 20 seconds, then resumes pinging.
-    log.append(datetime.datetime.now())
+    log.append(str(datetime.datetime.now()))
     subprocess.run("sudo service network-manager restart", shell=True)
     print("Your network disconnected " + str(len(log)) + " times at:")
     print(log)
